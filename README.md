@@ -235,8 +235,26 @@ console.log(solution(100, 101));
 // let arr2 = result.map((i) => i + s);
 ```
 
-```javascript
+[배열에서 중복된 값 제거후 새로운 배열반환]
 
+<span style="color:red">#중복제거#set()#객체배열변환</span>
+
+```javascript
+function answer(str) {
+  let set = new Set(str);
+  let set_arr = [...set];
+  return set_arr;
+}
+
+let input = [
+  ["A", "B", "B"],
+  ["치킨", "피자", "햄버거", "치킨"],
+  ["월", "화", "수", "월", "일"],
+];
+
+for (let i = 0; i < input.length; i++) {
+  console.log(answer(input[i]));
+}
 ```
 
 ```javascript
