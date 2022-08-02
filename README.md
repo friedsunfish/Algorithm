@@ -255,7 +255,10 @@ for (let i = 0; i < input.length; i++) {
 }
 ```
 
+[숫자가 들어갈 위치 ]
 ```javascript
+
+
 
 ```
 
