@@ -1,6 +1,7 @@
 Algorithm
 
 [2진법으로 변환시 1이 가장 많은순으로 정렬(map,match,sort사용)]
+
 ```javascript
 function solution(A) {
   A = A.sort((a, b) => a - b);
@@ -236,9 +237,6 @@ console.log(solution(100, 101));
 ```
 
 [배열에서 중복된 값 제거후 새로운 배열반환]
-
-<span style="color:red">#중복제거#set()#객체배열변환</span>
-
 ```javascript
 function answer(str) {
   let set = new Set(str);
