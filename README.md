@@ -2,8 +2,80 @@
 
 정렬(Sorting)알고리즘
 
+거품정렬(Bubble Sort) = O(n²) <br>
+```javascript
+let swap = function (arr, idx_1, idx_2) {
+  // idx_1과 idx_2의 자리를 바꾸는 함수
+  let tmp = arr[idx_1]; // tmp에 inx_1값 임시저장
+  arr[idx_1] = arr[idx_2]; //idx_1을 idx_2로 변경
+  arr[idx_2] = tmp; // idx_2를 tmp에저장해놓았던 inx_1값으로 변경
+};
 
+let bubbleSort_1 = function (arr) {
+  //i와 i+1로 비교하기때문에 arr.length-1값으로 잡는다
+  for (let i = 0; i < arr.length - 1; i++) {
+    // 〃
+    for (let j = 0; j < arr.length - 1; j++) {
+      //앞의값이 뒤에값보다 클경우 swap함수실행
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, j, j + 1);
+      }
+      console.log(arr);
+    }
+  }
+};
 
+let bubbleSort_2 = function (arr) {
+  //i와 i+1로 비교하기때문에 arr.length-1값으로 잡는다
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      //정렬이 끝난 부분도 계속 확인하는것을 방지하기위해 arr.length-i-1을 한다
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, j, j + 1);
+      }
+    }
+  }
+};
+
+let bubbleSort_3 = function (arr) {
+  // 스왑을 했는지안했는지 체크하기위해 변수생성
+  let swapped;
+  //i와 i+1로 비교하기때문에 arr.length-1값으로 잡는다
+  for (let i = 0; i < arr.length - 1; i++) {
+    // 기본값을 false로 지정
+    swapped = false;
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, j, j + 1);
+        // 스왑을 했기때문에 상태값을 true로 변경
+        swapped = true;
+      }
+    }
+    // swapped가 false일경우(스왑을 하지않았을경우) 이미정렬되어있는것으로판단하고 반복문종료
+    if (!swapped) break;
+  }
+};
+
+// test code
+let init_array = [6, 5, 1, 3, 2, 4];
+let array = [...init_array];
+
+bubbleSort_1(array);
+console.log(array); //[ 1, 2, 3, 4, 5, 6 ]
+array = [...init_array];
+bubbleSort_2(array);
+console.log(array); //[ 1, 2, 3, 4, 5, 6 ]
+array = [...init_array];
+bubbleSort_3(array);
+console.log(array); //[ 1, 2, 3, 4, 5, 6 ]
+
+```
+
+선택정렬(Selection Sort) <br>
+삽입정렬(Insertion Sort) <br>
+병합정렬(Merge Sort) <br>
+퀵 정렬(Quick Sort) <br>
+공통함수(swap() , ascending() , descending()) <br>
 
 ```javascript
 
