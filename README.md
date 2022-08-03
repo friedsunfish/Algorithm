@@ -1,4 +1,35 @@
-Algorithm
+# Algorithm
+
+정렬(Sorting)알고리즘
+
+
+
+
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+``````javascript
+
+``````javascript
+
+```
+```javascript
+
+```
 
 [2진법으로 변환시 1이 가장 많은순으로 정렬(map,match,sort사용)]
 
