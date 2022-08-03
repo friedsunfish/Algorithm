@@ -70,7 +70,9 @@ bubbleSort_3(array);
 console.log(array); //[ 1, 2, 3, 4, 5, 6 ]
 
 ```
+```javascript
 
+```
 선택정렬(Selection Sort) <br>
 삽입정렬(Insertion Sort) <br>
 병합정렬(Merge Sort) <br>
