@@ -3,6 +3,7 @@
 정렬(Sorting)알고리즘
 
 거품정렬(Bubble Sort) = O(n²) <br>
+
 ```javascript
 let swap = function (arr, idx_1, idx_2) {
   // idx_1과 idx_2의 자리를 바꾸는 함수
@@ -71,17 +72,101 @@ console.log(array); //[ 1, 2, 3, 4, 5, 6 ]
 
 ```
 ```javascript
+let swap = function (arr, idx_1, idx_2) {
+  // idx_1과 idx_2의 자리를 바꾸는 함수
+  let tmp = arr[idx_1]; // tmp에 inx_1값 임시저장
+  arr[idx_1] = arr[idx_2]; //idx_1을 idx_2로 변경
+  arr[idx_2] = tmp; // idx_2를 tmp에저장해놓았던 inx_1값으로 변경
+};
+
+//오름차순 정렬
+let ascending = function (x, y) {
+  return x > y;
+};
+
+//내림차순 정렬
+let descending = function (x, y) {
+  return x < y;
+};
+
+let bubbleSort = function (arr, compare) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (compare(arr[j], arr[j + 1])) {
+        swap(arr, j, j + 1);
+      }
+    }
+  }
+};
+
+// test code
+let init_array = [6, 5, 1, 3, 2, 4];
+let array;
+
+let sorting = [bubbleSort];
+let order = [ascending, descending];
+for (let i = 0; i < sorting.length; i++) {
+  for (let j = 0; j < order.length; j++) {
+    console.log(sorting[i].name, order[j].name);
+    array = [...init_array];
+    sorting[i](array, order[j]);
+    console.log(array);
+  }
+}
 
 ```
 선택정렬(Selection Sort) <br>
+```javascript
+let swap = function (arr, idx_1, idx_2) {
+  // idx_1과 idx_2의 자리를 바꾸는 함수
+  let tmp = arr[idx_1]; // tmp에 inx_1값 임시저장
+  arr[idx_1] = arr[idx_2]; //idx_1을 idx_2로 변경
+  arr[idx_2] = tmp; // idx_2를 tmp에저장해놓았던 inx_1값으로 변경
+};
+
+//오름차순
+let ascending = function (x, y) {
+  return x > y;
+};
+
+//내림차순
+let descending = function (x, y) {
+  return x < y;
+};
+
+let selectionSort = function (arr, compare) {
+  for (let i = 0; i < arr.length; i++) {
+    let k = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (compare(arr[k], arr[j])) {
+        k = j;
+      }
+    }
+    swap(arr, i, k);
+  }
+};
+
+// testcode
+let init_array = [6, 5, 1, 3, 2, 4];
+let array;
+
+let sorting = [selectionSort];
+let order = [ascending, descending];
+for (let i = 0; i < sorting.length; i++) {
+  for (let j = 0; j < order.length; j++) {
+    console.log(sorting[i].name, order[j].name);
+    array = [...init_array];
+    sorting[i](array, order[j]);
+    console.log(array);
+  }
+}
+```
 삽입정렬(Insertion Sort) <br>
 병합정렬(Merge Sort) <br>
 퀵 정렬(Quick Sort) <br>
 공통함수(swap() , ascending() , descending()) <br>
 
-```javascript
 
-```
 ```javascript
 
 ```
