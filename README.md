@@ -162,14 +162,80 @@ for (let i = 0; i < sorting.length; i++) {
 }
 ```
 삽입정렬(Insertion Sort) <br>
+```javascript
+let swap = function (arr, idx_1, idx_2) {
+  // idx_1과 idx_2의 자리를 바꾸는 함수
+  let tmp = arr[idx_1]; // tmp에 inx_1값 임시저장
+  arr[idx_1] = arr[idx_2]; //idx_1을 idx_2로 변경
+  arr[idx_2] = tmp; // idx_2를 tmp에저장해놓았던 inx_1값으로 변경
+};
+
+//오름차순
+let ascending = function (x, y) {
+  return x > y;
+};
+
+//내림차순
+let descending = function (x, y) {
+  return x < y;
+};
+
+let insertionSort = function (arr, compare) {
+  for (let i = 0; i < arr.length; i++) {
+    let tmp = arr[i];
+    let j;
+    for (j = i - 1; j >= 0; j--) {
+      arr[j + 1] = arr[j];
+      if (compare(tmp, arr[j])) {
+        break;
+      }
+    }
+    arr[j + 1] = tmp;
+  }
+};
+
+// testcode
+let init_array = [6, 5, 1, 3, 2, 4];
+let array;
+
+let sorting = [insertionSort];
+let order = [ascending, descending];
+for (let i = 0; i < sorting.length; i++) {
+  for (let j = 0; j < order.length; j++) {
+    console.log(sorting[i].name, order[j].name);
+    array = [...init_array];
+    sorting[i](array, order[j]);
+    console.log(array);
+  }
+}
+```
+
 병합정렬(Merge Sort) <br>
+```javascript
+let mergeSort = function (arr, compare) {
+  if (arr.length === 1) return arr;
+
+  let m = (arr.length / 2).toFixed(0);
+  let left = mergeSort(arr.slice(0, m), compare);
+  let right = mergeSort(arr.slice(m), compare);
+
+  let i = 0,
+    j = 0,
+    k = 0;
+  while (i < left.length && j < right.length) {
+    arr[k++] = compare(left[i], right[j]) ? right[j++] : left[i++];
+  }
+  while (i < left.length) arr[k++] = left[i++];
+  while (j < right.legnth) arr[k++] = right[j++];
+
+  return arr;
+};
+```
 퀵 정렬(Quick Sort) <br>
 공통함수(swap() , ascending() , descending()) <br>
 
 
-```javascript
 
-```
 ```javascript
 
 ```
